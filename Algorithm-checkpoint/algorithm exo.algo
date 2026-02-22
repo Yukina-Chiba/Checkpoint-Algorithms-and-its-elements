@@ -1,0 +1,33 @@
+ALGORITHM sentence_analysis
+VAR
+    ch : CHAR;
+    length : INTEGER := 0;
+    words : INTEGER := 0;
+    vowels : INTEGER := 0;
+BEGIN
+    Read(ch)
+    
+    WHILE (ch <> '.') DO
+        length := length + 1
+        
+        IF (ch = 'a' OR ch = 'e' OR ch = 'i' OR ch = 'o' OR ch = 'u' OR
+            ch = 'A' OR ch = 'E' OR ch = 'I' OR ch = 'O' OR ch = 'U') THEN
+            vowels := vowels + 1
+        END_IF
+        
+        IF (ch = ' ') THEN
+            words := words + 1
+        END_IF
+
+        Read(ch)
+    END_WHILE
+    
+    words := words + 1
+    
+    Write("Length of sentence: ", length)
+    Write("Number of words: ", words)
+    Write("Number of vowels: ", vowels)
+END
+
+// Example: for "i hate algorithm." the results would be:
+// Length: 16, Words: 3, Vowels: 6
